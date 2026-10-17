@@ -1,6 +1,6 @@
 import { createInterface } from 'node:readline/promises';
 import { stdin, stdout } from 'node:process';
-import { handleRecipes } from './recipe.js';
+import { handleRecipes, searchRecipes } from './recipe.js';
 
 async function main() {
   const rl = createInterface({ input: stdin, output: stdout });
@@ -22,8 +22,14 @@ async function main() {
 
     if (commandName === 'list') {
       await handleRecipes(Number(args[0]));
-    } else {
-      break;
+    }
+    if (commandName === 'search') {
+      await searchRecipes(
+        Number(args[0]),
+        Number(args[1]),
+        args[2] ?? '',
+        Number(args[3]),
+      );
     }
   }
 

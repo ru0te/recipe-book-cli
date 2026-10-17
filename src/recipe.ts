@@ -1,4 +1,5 @@
 import type { Recipe } from './types.js';
+import { toTitleCase } from './utils.js';
 
 async function getRecipes(num: number) {
   try {
@@ -45,4 +46,21 @@ function listRecipes(recipes: Recipe[]) {
 export async function handleRecipes(num: number) {
   const data: Recipe[] = await getRecipes(num);
   listRecipes(data);
+}
+
+export async function searchRecipes(
+  time: number,
+  calories: number,
+  difficulty: string,
+  num: number,
+) {
+  const data: Recipe[] = await getRecipes(num);
+  const filteredRecipes = data.filter((recipe) => {
+    return (
+      recipe.prepTimeMinutes <= time &&
+      recipe.caloriesPerServing <= calories &&
+      recipe.difficulty === toTitleCase(difficulty)
+    );
+  });
+  listRecipes(filteredRecipes);
 }
