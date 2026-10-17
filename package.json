@@ -1,0 +1,30 @@
+{
+  "name": "recipe-book-cli",
+  "version": "1.0.0",
+  "description": "A recipe book in your terminal",
+  "homepage": "https://github.com/ru0te/recipe-book-cli#readme",
+  "bugs": {
+    "url": "https://github.com/ru0te/recipe-book-cli/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ru0te/recipe-book-cli.git"
+  },
+  "license": "MIT",
+  "author": "ru0te",
+  "type": "module",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "start": "node dist/main.js",
+    "dev": "ts-node src/main.js"
+  },
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "@types/prompt-sync": "^4.2.3"
+  }
+}
